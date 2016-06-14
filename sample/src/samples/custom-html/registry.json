@@ -5,7 +5,13 @@
       "default" : true,
       "files": ["html", "js"]
     },
-    "all": {
+    "all-no-help-classes": {
+      "files": ["html", "js"]
+    },
+    "all-with-help-classes": {
+      "files": ["html", "js"]
+    },
+    "selection-column": {
       "files": ["html", "js"]
     }
   }

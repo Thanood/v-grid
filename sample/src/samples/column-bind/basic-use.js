@@ -14,30 +14,31 @@ export class BasicUse {
 
   columnSetup = [
     {
-      attribute: "index"
-      }, {
-      attribute: "name"
+      colField: "index"
     }, {
-      attribute: "number"
+      colField: "name"
     }, {
-      attribute: "bool"
+      colField: "number"
     }, {
-      attribute: "images"
+      colField: "date"
+    }, {
+      colField: "bool"
+    }, {
+      colField: "images"
     }
 
-  ]
+  ];
 
 
   //helper for dummy data
   constructor(dummyDataGenerator) {
-      //get this element
-      this.dummyDataGenerator = dummyDataGenerator;
-      this.dummyDataGenerator.generateData(10000, (data) => {
-        this.myCollection = data;
-      });
+    //get this element
+    this.dummyDataGenerator = dummyDataGenerator;
+    this.dummyDataGenerator.generateData(10000, (data) => {
+      this.myCollection = data;
+    })
 
-    }
-
+  }
 
 
 }
