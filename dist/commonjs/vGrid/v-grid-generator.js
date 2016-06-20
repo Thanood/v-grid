@@ -44,6 +44,8 @@ var VGridGenerator = exports.VGridGenerator = function () {
     this.updateGridScrollbars();
     this.rebindAllRowSlots();
     this.setLargeScrollLimit();
+
+    this.vGrid.sendCollectionEvent();
   };
 
   VGridGenerator.prototype.addHtml = function addHtml() {
@@ -77,7 +79,7 @@ var VGridGenerator = exports.VGridGenerator = function () {
         var currentRow = parseInt(e.currentTarget.getAttribute("row"));
         _this.vGridConfig.clickHandler(e, currentRow);
         if (_this.vGridConfig.attMultiSelect !== undefined) {
-          _this.vGridSelection.setHightlight(e, currentRow, _this);
+          _this.vGridSelection.highlight(e, currentRow, _this);
         }
       }, false);
     }
@@ -189,8 +191,8 @@ var VGridGenerator = exports.VGridGenerator = function () {
         top: 0
       }], 0, top);
 
-      row.style.minWidth = this.gridElement.offsetWidth + "px";
-      row.style.width = this.vGrid.vGridConfig.repeater ? "100%" : this.getTotalColumnWidth() + "px";
+      row.style["min-width"] = this.getTotalColumnWidth() + "px";
+      row.style.width = "100%";
 
       row.innerHTML = "";
       this.contentScrollBodyElement.appendChild(row);
@@ -250,7 +252,8 @@ var VGridGenerator = exports.VGridGenerator = function () {
   };
 
   VGridGenerator.prototype.createFooterViewSlot = function createFooterViewSlot() {
-    var viewFactory = this.vGrid.viewCompiler.compile('<template><v-grid-pager></v-grid-pager></template>', this.vGrid.viewResources);
+    var pagerElement = this.vGridConfig.attCustomPager || '<v-grid-pager></v-grid-pager>';
+    var viewFactory = this.vGrid.viewCompiler.compile("<template>" + pagerElement + "</template>", this.vGrid.viewResources);
     var view = viewFactory.create(this.vGrid.container);
 
     this.footerViewSlot = new _aureliaFramework.ViewSlot(this.footerElement, true);
@@ -373,7 +376,8 @@ var VGridGenerator = exports.VGridGenerator = function () {
   VGridGenerator.prototype.correctRowAndScrollbodyWidth = function correctRowAndScrollbodyWidth() {
     this.contentScrollBodyElement.style.width = this.vGrid.vGridConfig.repeater ? "100%" : this.getTotalColumnWidth() + "px";
     for (var i = 0; i < this.rowElementArray.length; i++) {
-      this.rowElementArray[i].div.style.width = this.vGrid.vGridConfig.repeater ? "100%" : this.getTotalColumnWidth() + "px";
+      this.rowElementArray[i].div.style.width = "100%";
+      this.rowElementArray[i].div.style["min-width"] = this.getTotalColumnWidth() + "px";
     }
     this.headerScrollElement.style.width = this.vGrid.vGridConfig.repeater ? "100%" : this.getTotalColumnWidth() + "px";
   };
@@ -549,6 +553,8 @@ var VGridGenerator = exports.VGridGenerator = function () {
 
     this.contentScrollBodyElement.style.height = this.scrollBodyHeight - 1 + "px";
     this.contentScrollBodyElement.style.height = this.scrollBodyHeight + 1 + "px";
+
+    this.vGrid.sendCollectionEvent();
   };
 
   _createClass(VGridGenerator, [{

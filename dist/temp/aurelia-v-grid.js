@@ -7,7 +7,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _dec, _dec2, _class2, _dec3, _dec4, _class4, _dec5, _dec6, _class6, _dec7, _dec8, _class7, _dec9, _dec10, _class8, _dec11, _dec12, _class9, _dec13, _dec14, _class10, _dec15, _dec16, _class11, _dec17, _dec18, _class12, _dec19, _dec20, _class13, _dec21, _dec22, _dec23, _dec24, _dec25, _dec26, _dec27, _dec28, _dec29, _dec30, _dec31, _dec32, _dec33, _dec34, _class15, _desc, _value, _class16, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _dec35, _dec36, _class18, _dec37, _dec38, _dec39, _dec40, _class20, _dec41, _dec42, _dec43, _dec44, _dec45, _dec46, _dec47, _dec48, _dec49, _dec50, _dec51, _dec52, _dec53, _desc2, _value2, _class26, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _descriptor22, _descriptor23, _descriptor24, _class27, _temp3;
+var _dec, _dec2, _class2, _dec3, _dec4, _class4, _dec5, _dec6, _class6, _dec7, _dec8, _class7, _dec9, _dec10, _class8, _dec11, _dec12, _class9, _dec13, _dec14, _class10, _dec15, _dec16, _class11, _dec17, _dec18, _class12, _dec19, _dec20, _class13, _dec21, _dec22, _dec23, _dec24, _dec25, _dec26, _dec27, _dec28, _dec29, _dec30, _dec31, _dec32, _dec33, _dec34, _class15, _desc, _value, _class16, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _dec35, _dec36, _class18, _dec37, _dec38, _dec39, _dec40, _class20, _dec41, _dec42, _dec43, _dec44, _dec45, _dec46, _dec47, _dec48, _dec49, _dec50, _dec51, _dec52, _dec53, _dec54, _dec55, _dec56, _desc2, _value2, _class25, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _descriptor22, _descriptor23, _descriptor24, _descriptor25, _descriptor26, _descriptor27, _class26, _temp3;
 
 exports.configure = configure;
 exports.configure = configure;
@@ -108,65 +108,65 @@ var VGridHeaderMenu = exports.VGridHeaderMenu = (_dec = (0, _aureliaFramework.cu
     }
   };
 
-  VGridHeaderMenu.prototype.canOpen = function canOpen(e) {
+  VGridHeaderMenu.prototype.canOpen = function canOpen() {
     return true;
   };
 
   VGridHeaderMenu.prototype.menuHtmlMain = function menuHtmlMain() {
     return this.createMenuHTML([{
       action: "",
-      value: "Options",
+      value: this.getLang("menuMainHeaderOptions") || "Options",
       isHeader: true
     }, {
       action: "clear-cell",
-      value: "Clear cell"
+      value: this.getLang("menuMainHeaderClearCell") || "Clear cell"
     }, {
       action: "clear-all",
-      value: "Clear All Cells"
+      value: this.getLang("menuMainHeaderClearAllCells") || "Clear All Cells"
     }, {
       action: "show-all",
-      value: "Show all (keep filter text)"
+      value: this.getLang("menuMainHeaderShowAll") || "Show all (keep filter text)"
     }, {
       action: "set-filter",
-      value: "Set Filter"
+      value: this.getLang("menuMainHeaderSetFilter") || "Set Filter"
     }]);
   };
 
   VGridHeaderMenu.prototype.menuHtmlSetFilter = function menuHtmlSetFilter() {
     return this.createMenuHTML([{
       action: "",
-      value: "Set filter",
+      value: this.getLang("menuFilterHeaderSetFilter") || "Set filter",
       isHeader: true
     }, {
       action: "set-filter-1",
-      value: "equals"
+      value: this.getLang("menuFilterHeaderEquals") || "equals"
     }, {
       action: "set-filter-2",
-      value: "less than or eq"
+      value: this.getLang("menuFilterHeaderLessThanOrEq") || "less than or eq"
     }, {
       action: "set-filter-3",
-      value: "greater than or eq"
+      value: this.getLang("menuFilterHeaderGreaterThanOrEq") || "greater than or eq"
     }, {
       action: "set-filter-4",
-      value: "less than"
+      value: this.getLang("menuFilterHeaderLessThan") || "less than"
     }, {
       action: "set-filter-5",
-      value: "greater than"
+      value: this.getLang("menuFilterHeaderGreaterThan") || "greater than"
     }, {
       action: "set-filter-6",
-      value: "contains"
+      value: this.getLang("menuFilterHeaderContains") || "contains"
     }, {
       action: "set-filter-7",
-      value: "not equal to"
+      value: this.getLang("menuFilterHeaderNotEqualTo") || "not equal to"
     }, {
       action: "set-filter-8",
-      value: "does not contain"
+      value: this.getLang("menuFilterHeaderDoesNotContain") || "does not contain"
     }, {
       action: "set-filter-9",
-      value: "begins with"
+      value: this.getLang("menuFilterHeaderBeginsWith") || "begins with"
     }, {
       action: "set-filter-10",
-      value: "ends with"
+      value: this.getLang("menuFilterEndsWith") || "ends with"
     }]);
   };
 
@@ -282,22 +282,22 @@ var ContextRowMenu = exports.ContextRowMenu = (_dec3 = (0, _aureliaFramework.cus
     }
   };
 
-  ContextRowMenu.prototype.canOpen = function canOpen(e) {
+  ContextRowMenu.prototype.canOpen = function canOpen() {
     return true;
   };
 
   ContextRowMenu.prototype.menuHtmlMain = function menuHtmlMain() {
     return this.createMenuHTML([{
       action: "",
-      value: "Options",
+      value: this.getLang("menuRowOptions") || "Options",
       isHeader: true
     }, {
       action: "copy-cell",
-      value: "Copy cell value",
+      value: this.getLang("menuRowCopyCellValue") || "Copy cell value",
       isHeader: false
     }, {
       action: "paste-cell",
-      value: "Paste into cell/selected rows",
+      value: this.getLang("menuRowCopyPasteIntoCell") || "Paste into cell/selected rows",
       isHeader: false
     }]);
   };
@@ -369,7 +369,7 @@ var vGridDragDropCol = exports.vGridDragDropCol = (_dec5 = (0, _aureliaFramework
 
     var mainCol = this.element;
     while (mainCol.nodeName !== 'V-GRID-HEADER-COL') {
-      mainCol = mainCol.offsetParent;
+      mainCol = mainCol.parentNode;
     }
     this.mainCol = mainCol;
 
@@ -621,7 +621,7 @@ var vGridAttributesFilter = exports.vGridAttributesFilter = (_dec7 = (0, _aureli
         }
       });
 
-      this.vGrid.element.addEventListener("filterClearAll", function (e) {
+      this.vGrid.element.addEventListener("filterClearAll", function () {
         _this10.resetValue();
         _this10.updateFilter(_this10.vGrid.vGridFilter.lastFilter);
       });
@@ -726,7 +726,7 @@ var vGridAttributesKeyMove = exports.vGridAttributesKeyMove = (_dec11 = (0, _aur
       _this11.element.offsetParent.dispatchEvent(ev);
     });
 
-    this.element.addEventListener('focus', function (e) {
+    this.element.addEventListener('focus', function () {
 
       if (_this11.vGrid.vGridCurrentEntityRef === null) {
         var ev = document.createEvent('Event');
@@ -821,8 +821,6 @@ var vGridAttributesKeyMove = exports.vGridAttributesKeyMove = (_dec11 = (0, _aur
       if (e.keyCode === 33) {
         e.preventDefault();
         _this13.keyDownDelay(function () {
-          var currentscrolltop = _this13.vGrid.vGridClientCtx.getScrollTop();
-
           var rowHeight = _this13.vGrid.vGridConfig.attRowHeight;
           var containerHeight = _this13.vGrid.vGridGenerator.contentElement.clientHeight;
           var containerRows = parseInt(containerHeight / rowHeight, 10);
@@ -1011,7 +1009,7 @@ var vGridAttributesResizeCol = exports.vGridAttributesResizeCol = (_dec15 = (0, 
 
     var mainCol = this.element;
     while (mainCol.nodeName !== 'V-GRID-HEADER-COL') {
-      mainCol = mainCol.offsetParent;
+      mainCol = mainCol.parentNode;
     }
     this.mainCol = mainCol;
 
@@ -1094,7 +1092,7 @@ var vGridAttributesResizeCol = exports.vGridAttributesResizeCol = (_dec15 = (0, 
       _this17.onmousemove(e);
     };
 
-    this.vGridGenerator.headerElement.onmouseup = function (e) {
+    this.vGridGenerator.headerElement.onmouseup = function () {
       if (!_this17.started) {
         _this17.vGridGenerator.headerElement.onmousemove = "";
       }
@@ -1128,7 +1126,7 @@ var vGridAttributesSelection = exports.vGridAttributesSelection = (_dec17 = (0, 
     this.selected = this.vGrid.vGridSelection.isSelected(this.bindingContext.row);
     this.element.checked = this.selected;
 
-    this.element.onclick = function (e) {
+    this.element.onclick = function () {
 
       var status = _this18.element.checked === "true" || _this18.element.checked === true ? true : false;
 
@@ -1184,7 +1182,7 @@ var vGridAttributesSort = exports.vGridAttributesSort = (_dec19 = (0, _aureliaFr
       _this19.vGrid.vGridConfig.onOrderBy(_this19.attribute, e.shiftKey);
     };
 
-    this.vGrid.element.addEventListener("sortIconUpdate", function (e) {
+    this.vGrid.element.addEventListener("sortIconUpdate", function () {
       _this19.sortIcon.innerHTML = _this19.getSortIconMarkup(_this19.attribute);
     });
   };
@@ -1313,6 +1311,9 @@ var VGridConfig = exports.VGridConfig = function () {
     this.eventOnRowClick = null;
     this.eventOnRowDblClick = null;
     this.eventOnRemoteCall = null;
+    this.attHidePagerInfo = false;
+    this.attCustomPager = null;
+    this.attLanguage = {};
 
     this.repeater = false;
     this.repeatRowTemplate = null;
@@ -1615,6 +1616,10 @@ var Contextmenu = exports.Contextmenu = function () {
     this.windowHeight = null;
   }
 
+  Contextmenu.prototype.getLang = function getLang(value) {
+    return this.vGrid.vGridConfig.attLanguage[value];
+  };
+
   Contextmenu.prototype.bind = function bind(bindingContext, overrideContext) {
     this.bindingContext = bindingContext;
     this.overrideContext = overrideContext;
@@ -1633,16 +1638,31 @@ var Contextmenu = exports.Contextmenu = function () {
     return true;
   };
 
+  Contextmenu.prototype.closeIfOpen = function closeIfOpen() {
+    if (this.menuState) {
+      this.toggleMenuOff();
+    }
+  };
+
   Contextmenu.prototype.addListener = function addListener() {
     this.contextListenerBinded = this.contextListener.bind(this);
+    this.closeIfOpenBinded = this.closeIfOpen.bind(this);
     this.element.addEventListener("contextmenu", this.contextListenerBinded);
+    this.vGrid.element.addEventListener("vGridCloseContextMenuIfOpen", this.closeIfOpenBinded);
   };
 
   Contextmenu.prototype.removeListener = function removeListener() {
     this.element.removeEventListener("contextmenu", this.contextListenerBinded);
+    this.element.removeEventListener("vGridCloseContextMenuIfOpen", this.closeIfOpenBinded);
   };
 
   Contextmenu.prototype.contextListener = function contextListener(e) {
+    var event = new CustomEvent("vGridCloseContextMenuIfOpen", {
+      detail: "",
+      bubbles: true
+    });
+    this.vGrid.element.dispatchEvent(event);
+
     if (this.canOpen(e)) {
 
       this.taskItemInContext = this.clickInsideElement(e, this.classToOpenOn);
@@ -1689,7 +1709,7 @@ var Contextmenu = exports.Contextmenu = function () {
     if (el.classList.contains(className)) {
       return el;
     } else {
-      while (el = el.parentNode) {
+      while (el === el.parentNode) {
         if (el.classList && el.classList.contains(className)) {
           return el;
         }
@@ -1857,6 +1877,37 @@ var VGridCtx = exports.VGridCtx = function () {
     this.vGridGenerator.redrawGrid();
   };
 
+  VGridCtx.prototype.showSelectedAndNotSelected = function showSelectedAndNotSelected() {
+    this.vGrid.vGridCollectionFiltered = this.vGrid.vGridCollection.slice(0);
+    this.vGridGenerator.collectionChange();
+  };
+
+  VGridCtx.prototype.showOnlySelected = function showOnlySelected() {
+    var _this26 = this;
+
+    var newArray = [];
+    this.vGridCollection.forEach(function (x, i) {
+      if (_this26.vGridSelection.isSelectedMain(i)) {
+        newArray.push(x);
+      }
+    });
+    this.vGrid.vGridCollectionFiltered = newArray;
+    this.vGridGenerator.collectionChange();
+  };
+
+  VGridCtx.prototype.showOnlyNotSelected = function showOnlyNotSelected() {
+    var _this27 = this;
+
+    var newArray = [];
+    this.vGridCollection.forEach(function (x, i) {
+      if (!_this27.vGridSelection.isSelectedMain(i)) {
+        newArray.push(x);
+      }
+    });
+    this.vGrid.vGridCollectionFiltered = newArray;
+    this.vGridGenerator.collectionChange();
+  };
+
   VGridCtx.prototype.setColumns = function setColumns(paramObj) {
     this.vGridConfig.colConfig = paramObj.colConfig;
   };
@@ -1910,6 +1961,42 @@ var VGridCtx = exports.VGridCtx = function () {
 
   VGridCtx.prototype.getScrollTop = function getScrollTop() {
     return this.vGridGenerator.contentElement.scrollTop;
+  };
+
+  VGridCtx.prototype.remoteGoToFirst = function remoteGoToFirst() {
+    this.vGrid.loading = true;
+    this.vGridConfig.remoteOffset = 0;
+    this.vGridConfig.remoteCall();
+  };
+
+  VGridCtx.prototype.remoteGoToNext = function remoteGoToNext() {
+    this.vGrid.loading = true;
+    this.vGridConfig.remoteOffset = this.vGridConfig.remoteOffset + this.vGridConfig.remoteLimit;
+    this.vGridConfig.remoteCall();
+  };
+
+  VGridCtx.prototype.remoteGoToPage = function remoteGoToPage(x) {
+    this.vGrid.loading = true;
+    this.vGridConfig.remoteOffset = x * this.vGridConfig.remoteLimit;
+    this.vGridConfig.remoteCall();
+  };
+
+  VGridCtx.prototype.remoteGoToOffset = function remoteGoToOffset(x) {
+    this.vGrid.loading = true;
+    this.vGridConfig.remoteOffset = x;
+    this.vGridConfig.remoteCall();
+  };
+
+  VGridCtx.prototype.remoteGoTofirstPrev = function remoteGoTofirstPrev() {
+    this.vGrid.loading = true;
+    this.vGridConfig.remoteOffset = this.vGridConfig.remoteOffset - this.vGridConfig.remoteLimit;
+    this.vGridConfig.remoteCall();
+  };
+
+  VGridCtx.prototype.remoteGoTofirstLast = function remoteGoTofirstLast() {
+    this.vGrid.loading = true;
+    this.vGridConfig.remoteOffset = this.vGridConfig.remoteLength - this.vGridConfig.remoteLimit;
+    this.vGridConfig.remoteCall();
   };
 
   _createClass(VGridCtx, [{
@@ -2167,13 +2254,29 @@ var VGridElementFooterPager = exports.VGridElementFooterPager = (_dec35 = (0, _a
     this.statusLastButton = false;
     this.statusFirstButton = false;
     this.statusPrevButton = false;
+
+    this.statusNextButtonTitle = this.getLang("pagerBtnNext") || "Next";
+    this.statusLastButtonTitle = this.getLang("pagerBtnLast") || "Last";
+    this.statusFirstButtonTitle = this.getLang("pagerBtnFirst") || "First";
+    this.statusPrevButtonTitle = this.getLang("pagerBtnLast") || "Last";
+
+    this.pagerStringPage = this.getLang("pagerStringPage") || "Page ";
+    this.pagerStringOf = this.getLang("pagerStringOf") || " of ";
+    this.pagerStringTotalEntities = this.getLang("pagerStringTotalEntities") || ", Total entities:";
+    this.pagerStringPageSize = this.getLang("pagerStringPageSize") || ", page size ";
+  };
+
+  VGridElementFooterPager.prototype.getLang = function getLang(value) {
+    return this.vGrid.vGridConfig.attLanguage[value];
   };
 
   VGridElementFooterPager.prototype.updatePager = function updatePager(data) {
     this.collectionLength = data.length;
     this.limit = data.limit;
     this.offset = data.offset;
+
     this.page = this.offset ? Math.ceil(this.offset / this.limit) + 1 : 1;
+
     if (this.page === 1) {
       this.statusFirstButton = false;
       this.statusPrevButton = false;
@@ -2190,7 +2293,17 @@ var VGridElementFooterPager = exports.VGridElementFooterPager = (_dec35 = (0, _a
       this.statusLastButton = true;
     }
 
-    this.info = 'Page ' + this.page + ' of ' + Math.ceil(this.collectionLength / this.limit) + ', Total entities:' + this.collectionLength + ', page size ' + this.limit;
+    if (!this.vGridConfig.attHidePagerInfo) {
+      this.info = '' + this.pagerStringPage + this.page + this.pagerStringOf + Math.ceil(this.collectionLength / this.limit) + this.pagerStringTotalEntities + this.collectionLength + this.pagerStringPageSize + this.limit;
+    }
+
+    this.vGrid.raiseEvent("v-remote-collection-event", {
+      evt: "v-remote-collection-event",
+      page: this.page,
+      pages: Math.ceil(this.collectionLength / this.limit),
+      length: this.collectionLength,
+      pageSize: this.limit
+    });
   };
 
   VGridElementFooterPager.prototype.firstBtn = function firstBtn() {
@@ -2297,7 +2410,7 @@ var VGridFilter = exports.VGridFilter = function () {
   VGridFilter.prototype.run = function run(objArray, ObjFilter) {
     var filterOperatorTable = this.filterOperatorTable;
 
-    var resultArray = objArray.filter(function (data, i) {
+    var resultArray = objArray.filter(function (data) {
       var result = true;
       ObjFilter.forEach(function (x) {
         var rowValue;
@@ -2480,6 +2593,8 @@ var VGridGenerator = exports.VGridGenerator = function () {
     this.updateGridScrollbars();
     this.rebindAllRowSlots();
     this.setLargeScrollLimit();
+
+    this.vGrid.sendCollectionEvent();
   };
 
   VGridGenerator.prototype.addHtml = function addHtml() {
@@ -2499,38 +2614,38 @@ var VGridGenerator = exports.VGridGenerator = function () {
   };
 
   VGridGenerator.prototype.addEvents = function addEvents() {
-    var _this26 = this;
+    var _this28 = this;
 
     for (var i = 0; i < this.getRowCacheLength(); i++) {
       var rowElement = this.rowElementArray[i].div;
 
       rowElement.addEventListener("dblclick", function (e) {
         var currentRow = parseInt(e.currentTarget.getAttribute("row"));
-        _this26.vGridConfig.clickHandler(e, currentRow);
+        _this28.vGridConfig.clickHandler(e, currentRow);
       }, false);
 
       rowElement.addEventListener("click", function (e) {
         var currentRow = parseInt(e.currentTarget.getAttribute("row"));
-        _this26.vGridConfig.clickHandler(e, currentRow);
-        if (_this26.vGridConfig.attMultiSelect !== undefined) {
-          _this26.vGridSelection.setHightlight(e, currentRow, _this26);
+        _this28.vGridConfig.clickHandler(e, currentRow);
+        if (_this28.vGridConfig.attMultiSelect !== undefined) {
+          _this28.vGridSelection.highlight(e, currentRow, _this28);
         }
       }, false);
     }
 
     this.contentElement.addEventListener("scroll", function (e) {
-      if (_this26.vGridConfig.attRequestAnimationFrame) {
+      if (_this28.vGridConfig.attRequestAnimationFrame) {
         requestAnimationFrame(function () {
-          _this26.vGridScrollEvents.scrollEventHandler();
+          _this28.vGridScrollEvents.scrollEventHandler();
         });
       } else {
-        _this26.vGridScrollEvents.scrollEventHandler();
+        _this28.vGridScrollEvents.scrollEventHandler();
       }
     });
 
     this.headerElement.addEventListener("scroll", function (e) {
-      _this26.contentElement.scrollLeft = _this26.headerElement.scrollLeft;
-      _this26.vGridScrollEvents.lastScrollLeft = _this26.headerElement.scrollLeft;
+      _this28.contentElement.scrollLeft = _this28.headerElement.scrollLeft;
+      _this28.vGridScrollEvents.lastScrollLeft = _this28.headerElement.scrollLeft;
     });
   };
 
@@ -2625,8 +2740,8 @@ var VGridGenerator = exports.VGridGenerator = function () {
         top: 0
       }], 0, top);
 
-      row.style.minWidth = this.gridElement.offsetWidth + "px";
-      row.style.width = this.vGrid.vGridConfig.repeater ? "100%" : this.getTotalColumnWidth() + "px";
+      row.style["min-width"] = this.getTotalColumnWidth() + "px";
+      row.style.width = "100%";
 
       row.innerHTML = "";
       this.contentScrollBodyElement.appendChild(row);
@@ -2686,7 +2801,8 @@ var VGridGenerator = exports.VGridGenerator = function () {
   };
 
   VGridGenerator.prototype.createFooterViewSlot = function createFooterViewSlot() {
-    var viewFactory = this.vGrid.viewCompiler.compile('<template><v-grid-pager></v-grid-pager></template>', this.vGrid.viewResources);
+    var pagerElement = this.vGridConfig.attCustomPager || '<v-grid-pager></v-grid-pager>';
+    var viewFactory = this.vGrid.viewCompiler.compile('<template>' + pagerElement + '</template>', this.vGrid.viewResources);
     var view = viewFactory.create(this.vGrid.container);
 
     this.footerViewSlot = new _aureliaFramework.ViewSlot(this.footerElement, true);
@@ -2809,7 +2925,8 @@ var VGridGenerator = exports.VGridGenerator = function () {
   VGridGenerator.prototype.correctRowAndScrollbodyWidth = function correctRowAndScrollbodyWidth() {
     this.contentScrollBodyElement.style.width = this.vGrid.vGridConfig.repeater ? "100%" : this.getTotalColumnWidth() + "px";
     for (var i = 0; i < this.rowElementArray.length; i++) {
-      this.rowElementArray[i].div.style.width = this.vGrid.vGridConfig.repeater ? "100%" : this.getTotalColumnWidth() + "px";
+      this.rowElementArray[i].div.style.width = "100%";
+      this.rowElementArray[i].div.style["min-width"] = this.getTotalColumnWidth() + "px";
     }
     this.headerScrollElement.style.width = this.vGrid.vGridConfig.repeater ? "100%" : this.getTotalColumnWidth() + "px";
   };
@@ -2985,6 +3102,8 @@ var VGridGenerator = exports.VGridGenerator = function () {
 
     this.contentScrollBodyElement.style.height = this.scrollBodyHeight - 1 + "px";
     this.contentScrollBodyElement.style.height = this.scrollBodyHeight + 1 + "px";
+
+    this.vGrid.sendCollectionEvent();
   };
 
   _createClass(VGridGenerator, [{
@@ -3109,7 +3228,7 @@ var VGridMarkupGenerator = exports.VGridMarkupGenerator = function () {
   };
 
   VGridMarkupGenerator.prototype.processColumns = function processColumns(array) {
-    var _this27 = this;
+    var _this29 = this;
 
     array.forEach(function (col, index) {
       if (!col.colField && !col.colRowTemplate) {
@@ -3120,13 +3239,13 @@ var VGridMarkupGenerator = exports.VGridMarkupGenerator = function () {
 
       col.colType = col.colType || "text";
       col.colFilterTop = col.colFilterTop || false;
-      col.colHeaderName = col.colHeaderName || _this27.getAttribute(col.colField, true);
+      col.colHeaderName = col.colHeaderName || _this29.getAttribute(col.colField, true);
       col.colWidth = col.colWidth || 100;
       col.colCss = col.colCss || '';
-      col.colField = _this27.checkAttribute(col.colField);
+      col.colField = _this29.checkAttribute(col.colField);
 
-      _this27.createHeaderTemplate(col);
-      _this27.createRowTemplate(col);
+      _this29.createHeaderTemplate(col);
+      _this29.createRowTemplate(col);
     });
   };
 
@@ -3280,32 +3399,34 @@ var VGridObservables = exports.VGridObservables = function () {
   }
 
   VGridObservables.prototype.enableObservablesCollection = function enableObservablesCollection() {
-    var _this28 = this;
+    var _this30 = this;
 
     var collectionSubscription = function collectionSubscription(x, y) {
-      _this28.disableObservablesArray();
+      _this30.disableObservablesArray();
 
-      _this28.vGrid.vGridCollectionFiltered = _this28.vGrid.vGridCollection.slice(0);
-      _this28.vGrid.checkKeys();
+      _this30.vGrid.vGridCollectionFiltered = _this30.vGrid.vGridCollection.slice(0);
+      _this30.vGrid.checkKeys();
 
-      _this28.vGrid.vGridCurrentRow = -1;
-      _this28.vGrid.vGridSort.reset();
-      if (!_this28.vGrid.vGridConfig.keepFilterOnCollectionChange) {
-        _this28.vGrid.vGridSort.reset();
-        _this28.vGrid.vGridGenerator.rebuildGridHeaderHtmlAndViewSlot();
+      _this30.vGrid.vGridCurrentRow = -1;
 
-        _this28.vGrid.vGridSelection.reset();
-        _this28.vGrid.vGridConfig.keepFilterOnCollectionChange = false;
+      _this30.vGrid.vGridSort.reset();
+      if (!_this30.vGrid.vGridConfig.keepFilterOnCollectionChange) {
+        _this30.vGrid.vGridSort.reset();
+        _this30.vGrid.vGridGenerator.rebuildGridHeaderHtmlAndViewSlot();
+
+        _this30.vGrid.vGridSelection.reset();
+        _this30.vGrid.vGridConfig.keepFilterOnCollectionChange = false;
       }
-      _this28.vGrid.vGridGenerator.collectionChange();
+      _this30.vGrid.vGridGenerator.collectionChange();
 
-      for (var k in _this28.vGrid.vGridCurrentEntity) {
-        if (_this28.vGrid.vGridCurrentEntity.hasOwnProperty(k)) {
-          _this28.vGrid.vGridCurrentEntity[k] = undefined;
+      _this30.vGrid.vGridCurrentEntityRef = null;
+      for (var k in _this30.vGrid.vGridCurrentEntity) {
+        if (_this30.vGrid.vGridCurrentEntity.hasOwnProperty(k)) {
+          _this30.vGrid.vGridCurrentEntity[k] = undefined;
         }
       }
 
-      _this28.enableObservablesArray();
+      _this30.enableObservablesArray();
     };
     this.vGrid.__observers__.vGridCollection.subscribe(this.vGrid, collectionSubscription);
     this.collectioncallable = collectionSubscription;
@@ -3314,17 +3435,17 @@ var VGridObservables = exports.VGridObservables = function () {
   };
 
   VGridObservables.prototype.enableObservablesArray = function enableObservablesArray() {
-    var _this29 = this;
+    var _this31 = this;
 
     var arrayObserver = this.bindingEngine.collectionObserver(this.vGrid.vGridCollection).subscribe(function (arrayObserverChanges) {
 
-      var colFiltered = _this29.vGrid.vGridCollectionFiltered;
-      var col = _this29.vGrid.vGridCollection;
-      var grid = _this29.vGrid.vGridGenerator;
+      var colFiltered = _this31.vGrid.vGridCollectionFiltered;
+      var col = _this31.vGrid.vGridCollection;
+      var grid = _this31.vGrid.vGridGenerator;
 
       var curKey = -1;
-      if (_this29.vGrid.vGridCurrentEntityRef) {
-        curKey = _this29.vGrid.vGridCurrentEntityRef[_this29.vGrid.vGridRowKey];
+      if (_this31.vGrid.vGridCurrentEntityRef) {
+        curKey = _this31.vGrid.vGridCurrentEntityRef[_this31.vGrid.vGridRowKey];
       }
       var curEntityValid = true;
 
@@ -3337,19 +3458,19 @@ var VGridObservables = exports.VGridObservables = function () {
           if (observerChange.addedCount > 0) {
             for (var i = 0; i < observerChange.addedCount; i++) {
               colFiltered.push(col[observerChange.index + i]);
-              _this29.vGrid.checkKey(col[observerChange.index + i]);
+              _this31.vGrid.checkKey(col[observerChange.index + i]);
             }
           }
 
           if (observerChange.removed.length > 0) {
             observerChange.removed.forEach(function (x) {
-              if (x[_this29.vGrid.vGridRowKey] === curKey) {
+              if (x[_this31.vGrid.vGridRowKey] === curKey) {
                 curEntityValid = false;
               }
 
               var rowToRemove = -1;
               colFiltered.forEach(function (row, index) {
-                if (row[_this29.vGrid.vGridRowKey] === x[_this29.vGrid.vGridRowKey]) {
+                if (row[_this31.vGrid.vGridRowKey] === x[_this31.vGrid.vGridRowKey]) {
                   rowToRemove = index;
                 }
               });
@@ -3363,18 +3484,18 @@ var VGridObservables = exports.VGridObservables = function () {
         var newRowNo = -1;
 
         if (!curEntityValid) {
-          for (var k in _this29.vGrid.vGridCurrentEntity) {
-            if (_this29.vGrid.vGridCurrentEntity.hasOwnProperty(k)) {
-              _this29.vGrid.vGridCurrentEntity[k] = undefined;
+          for (var k in _this31.vGrid.vGridCurrentEntity) {
+            if (_this31.vGrid.vGridCurrentEntity.hasOwnProperty(k)) {
+              _this31.vGrid.vGridCurrentEntity[k] = undefined;
             }
           }
-          _this29.vGrid.vGridCurrentEntityRef = null;
-          _this29.vGrid.vGridCurrentRow = -1;
+          _this31.vGrid.vGridCurrentEntityRef = null;
+          _this31.vGrid.vGridCurrentRow = -1;
         } else {
           if (curKey !== -1) {
-            _this29.vGrid.vGridCollectionFiltered.forEach(function (x, index) {
-              if (curKey === x[_this29.vGrid.vGridRowKey]) {
-                _this29.vGrid.vGridCurrentRow = index;
+            _this31.vGrid.vGridCollectionFiltered.forEach(function (x, index) {
+              if (curKey === x[_this31.vGrid.vGridRowKey]) {
+                _this31.vGrid.vGridCurrentRow = index;
               }
             });
           }
@@ -3386,19 +3507,19 @@ var VGridObservables = exports.VGridObservables = function () {
   };
 
   VGridObservables.prototype.enableObservablesAttributes = function enableObservablesAttributes() {
-    var _this30 = this;
+    var _this32 = this;
 
     this.vGrid.vGridConfig.attAttributeObserve.forEach(function (property) {
-      var propertyObserver = _this30.bindingEngine.propertyObserver(_this30.vGrid.vGridCurrentEntity, property).subscribe(function (newValue, oldValue) {
+      var propertyObserver = _this32.bindingEngine.propertyObserver(_this32.vGrid.vGridCurrentEntity, property).subscribe(function (newValue, oldValue) {
         var newValueCheck = newValue !== undefined && newValue !== null ? newValue.toString() : newValue;
         var oldValueCheck = oldValue !== undefined && oldValue !== null ? oldValue.toString() : oldValue;
 
-        if (newValueCheck !== oldValueCheck && _this30.vGrid.vGridCurrentEntityRef) {
-          _this30.vGrid.vGridCurrentEntityRef[property] = newValue;
-          _this30.vGrid.vGridGenerator.rebindRowNumber(_this30.vGrid.vGridCurrentRow);
+        if (newValueCheck !== oldValueCheck && _this32.vGrid.vGridCurrentEntityRef) {
+          _this32.vGrid.vGridCurrentEntityRef[property] = newValue;
+          _this32.vGrid.vGridGenerator.rebindRowNumber(_this32.vGrid.vGridCurrentRow);
         }
       });
-      _this30.subscriptionsAttributes.push(propertyObserver);
+      _this32.subscriptionsAttributes.push(propertyObserver);
     });
   };
 
@@ -3436,7 +3557,7 @@ var VGridScrollEvents = exports.VGridScrollEvents = function () {
   }
 
   VGridScrollEvents.prototype.onLargeScroll = function onLargeScroll() {
-    var _this31 = this;
+    var _this33 = this;
 
     this.lastScrollTop = this.vGridGenerator.contentElement.scrollTop;
 
@@ -3453,20 +3574,20 @@ var VGridScrollEvents = exports.VGridScrollEvents = function () {
     var collectionLength = this.vGridConfig.getCollectionLength();
 
     var setAfter = function setAfter(cacheRowNumber) {
-      var row = _this31.vGridGenerator.rowElementArray[cacheRowNumber];
-      _this31.vGridGenerator.setRowTopValue([row], 0, currentRowTop);
+      var row = _this33.vGridGenerator.rowElementArray[cacheRowNumber];
+      _this33.vGridGenerator.setRowTopValue([row], 0, currentRowTop);
       currentRowTop = currentRowTop + rowHeight;
     };
 
     var setBefore = function setBefore(cacheRowNumber) {
-      var row = _this31.vGridGenerator.rowElementArray[cacheRowNumber];
+      var row = _this33.vGridGenerator.rowElementArray[cacheRowNumber];
       firstRowTop = firstRowTop - rowHeight;
-      _this31.vGridGenerator.setRowTopValue([row], 0, firstRowTop);
+      _this33.vGridGenerator.setRowTopValue([row], 0, firstRowTop);
     };
 
     var setHiddenFromView = function setHiddenFromView(cacheRowNumber) {
-      var row = _this31.vGridGenerator.rowElementArray[cacheRowNumber];
-      _this31.vGridGenerator.setRowTopValue([row], 0, -(currentRowTop + _this31.vGridConfig.attRowHeight * 50));
+      var row = _this33.vGridGenerator.rowElementArray[cacheRowNumber];
+      _this33.vGridGenerator.setRowTopValue([row], 0, -(currentRowTop + _this33.vGridConfig.attRowHeight * 50));
     };
 
     for (var i = 0; i < this.vGridGenerator.getRowCacheLength(); i++) {
@@ -3552,7 +3673,7 @@ var VGridScrollEvents = exports.VGridScrollEvents = function () {
   };
 
   VGridScrollEvents.prototype.onScrollbarScrolling = function onScrollbarScrolling() {
-    var _this32 = this;
+    var _this34 = this;
 
     this.isScrollBarScrolling = true;
 
@@ -3561,8 +3682,8 @@ var VGridScrollEvents = exports.VGridScrollEvents = function () {
     clearTimeout(this.scrollbarScrollingTimer);
 
     this.scrollbarScrollingTimer = setTimeout(function () {
-      _this32.onLargeScroll();
-      _this32.isScrollBarScrolling = false;
+      _this34.onLargeScroll();
+      _this34.isScrollBarScrolling = false;
     }, timeout);
   };
 
@@ -3691,23 +3812,25 @@ var VGridSelection = exports.VGridSelection = function () {
   function VGridSelection(mode, vGrid) {
     _classCallCheck(this, VGridSelection);
 
+    this.vGrid = vGrid;
     this.selectionMode = "none";
     this.lastRowSelected = -1;
     this.lastKeyKodeUsed = "none";
     this.selectedRows = 0;
 
-
-    this.vGrid = vGrid;
-
     if (mode === false) {
       this.selectionMode = "single";
     }
     if (mode === true) {
-      this.selectionMode = "multible";
+      this.selectionMode = "multiple";
     }
 
     this.selection = new Set([]);
   }
+
+  VGridSelection.prototype.triggerEvent = function triggerEvent() {
+    this.vGrid.sendCollectionEvent();
+  };
 
   VGridSelection.prototype.setMode = function setMode(mode) {
     this.selectionMode = "none";
@@ -3715,7 +3838,7 @@ var VGridSelection = exports.VGridSelection = function () {
       this.selectionMode = "single";
     }
     if (mode === true) {
-      this.selectionMode = "multible";
+      this.selectionMode = "multiple";
     }
   };
 
@@ -3744,6 +3867,8 @@ var VGridSelection = exports.VGridSelection = function () {
       this.selection.delete(this.vGrid.vGridCollectionFiltered[row][this.vGrid.vGridRowKey]);
     }
     this.selectedRows = this.selection.size;
+
+    this.triggerEvent();
   };
 
   VGridSelection.prototype.deSelectMain = function deSelectMain(row) {
@@ -3751,6 +3876,8 @@ var VGridSelection = exports.VGridSelection = function () {
       this.selection.delete(this.vGrid.vGridCollection[row][this.vGrid.vGridRowKey]);
     }
     this.selectedRows = this.selection.size;
+
+    this.triggerEvent();
   };
 
   VGridSelection.prototype.select = function select(row, addToSelection) {
@@ -3766,7 +3893,7 @@ var VGridSelection = exports.VGridSelection = function () {
         }
         this.selectedRows = this.selection.size;
         break;
-      case "multible":
+      case "multiple":
         if (!addToSelection) {
           this.selection.clear();
           if (this.vGrid.vGridCollectionFiltered[row]) {
@@ -3780,6 +3907,8 @@ var VGridSelection = exports.VGridSelection = function () {
           this.selectedRows = this.selection.size;
         }
     }
+
+    this.triggerEvent();
   };
 
   VGridSelection.prototype.selectMain = function selectMain(row, addToSelection) {
@@ -3795,7 +3924,7 @@ var VGridSelection = exports.VGridSelection = function () {
         }
         this.selectedRows = this.selection.size;
         break;
-      case "multible":
+      case "multiple":
         if (!addToSelection) {
           this.selection.clear();
           if (this.vGrid.vGridCollection[row]) {
@@ -3809,20 +3938,24 @@ var VGridSelection = exports.VGridSelection = function () {
           this.selectedRows = this.selection.size;
         }
     }
+
+    this.triggerEvent();
   };
 
   VGridSelection.prototype.selectRange = function selectRange(start, end) {
-    if (this.selectionMode === "multible") {
+    if (this.selectionMode === "multiple") {
       this.selection.clear();
       for (var i = start; i < end + 1; i++) {
         this.selection.add(this.vGrid.vGridCollectionFiltered[i][this.vGrid.vGridRowKey]);
       }
       this.selectedRows = this.selection.size;
     }
+
+    this.triggerEvent();
   };
 
   VGridSelection.prototype.selectAll = function selectAll() {
-    if (this.selectionMode === "multible") {
+    if (this.selectionMode === "multiple") {
       for (var i = 0; i < this.vGrid.vGridCollectionFiltered.length; i++) {
         this.selection.add(this.vGrid.vGridCollectionFiltered[i][this.vGrid.vGridRowKey]);
       }
@@ -3833,6 +3966,8 @@ var VGridSelection = exports.VGridSelection = function () {
       this.selection.add(this.vGrid.vGridCollectionFiltered[this.vGrid.vGridCurrentRow][this.vGrid.vGridRowKey]);
       this.selectedRows = this.selection.size;
     }
+
+    this.triggerEvent();
   };
 
   VGridSelection.prototype.deSelectAll = function deSelectAll() {
@@ -3840,16 +3975,20 @@ var VGridSelection = exports.VGridSelection = function () {
       this.selection.delete(this.vGrid.vGridCollectionFiltered[i][this.vGrid.vGridRowKey]);
     }
     this.selectedRows = this.selection.size;
+
+    this.triggerEvent();
   };
 
   VGridSelection.prototype.selectRangeMain = function selectRangeMain(start, end) {
-    if (this.selectionMode === "multible") {
+    if (this.selectionMode === "multiple") {
       this.selection.clear();
       for (var i = start; i < end + 1; i++) {
         this.selection.add(this.vGrid.vGridCollection[i][this.vGrid.vGridRowKey]);
       }
       this.selectedRows = this.selection.size;
     }
+
+    this.triggerEvent();
   };
 
   VGridSelection.prototype.reset = function reset() {
@@ -3859,15 +3998,17 @@ var VGridSelection = exports.VGridSelection = function () {
     this.lastRowSelected = -1;
     this.lastKeyKodeUsed = "none";
     this.selectedRows = this.selection.size;
+
+    this.triggerEvent();
   };
 
   VGridSelection.prototype.getSelectedRows = function getSelectedRows() {
-    var _this33 = this;
+    var _this35 = this;
 
     var array = [];
     if (this.selectedRows > 0) {
       this.vGrid.vGridCollectionFiltered.forEach(function (x, index) {
-        if (_this33.selection.has(x[_this33.vGrid.vGridRowKey]) === true) {
+        if (_this35.selection.has(x[_this35.vGrid.vGridRowKey]) === true) {
           array.push(index);
         }
       });
@@ -3876,12 +4017,12 @@ var VGridSelection = exports.VGridSelection = function () {
   };
 
   VGridSelection.prototype.getSelectedRowsMain = function getSelectedRowsMain() {
-    var _this34 = this;
+    var _this36 = this;
 
     var array = [];
     if (this.selectedRows > 0) {
       this.vGrid.vGridCollection.forEach(function (x, index) {
-        if (_this34.selection.has(x[_this34.vGrid.vGridRowKey]) === true) {
+        if (_this36.selection.has(x[_this36.vGrid.vGridRowKey]) === true) {
           array.push(index);
         }
       });
@@ -3897,6 +4038,8 @@ var VGridSelection = exports.VGridSelection = function () {
       this.selection.add(this.vGrid.vGridCollectionFiltered[newRows[i]][this.vGrid.vGridRowKey]);
     }
     this.selectedRows = this.selection.size;
+
+    this.triggerEvent();
   };
 
   VGridSelection.prototype.setSelectedRowsMain = function setSelectedRowsMain(newRows) {
@@ -3907,22 +4050,23 @@ var VGridSelection = exports.VGridSelection = function () {
       this.selection.add(this.vGrid.vGridCollection[newRows[i]][this.vGrid.vGridRowKey]);
     }
     this.selectedRows = this.selection.size;
+
+    this.triggerEvent();
   };
 
-  VGridSelection.prototype.setHightlight = function setHightlight(e, currentRow, vGridGenerator) {
+  VGridSelection.prototype.highlight = function highlight(e, currentRow, vGridGenerator) {
 
     var isSel;
     var manualSel = this.vGrid.vGridConfig.attManualSelection;
     if (!manualSel) {
       var currentselectedRows = this.getSelectedRows();
+      var currentKeyKode = "";
 
       if (currentRow !== this.lastRowSelected || currentselectedRows[0] !== currentRow) {
 
         if (currentRow <= vGridGenerator.vGridConfig.getCollectionLength() - 1) {
 
-          if (this.selectionMode === "multible") {
-
-            var currentKeyKode = "";
+          if (this.selectionMode === "multiple") {
 
             if (e.shiftKey) {
               currentKeyKode = "shift";
@@ -4032,7 +4176,6 @@ var VGridSelection = exports.VGridSelection = function () {
           }
           this.lastRowSelected = currentRow;
         } else {
-          isSel = this.isSelected(currentRow);
           this.select(currentRow);
         }
 
@@ -4122,7 +4265,7 @@ var VGridSort = exports.VGridSort = function () {
   return VGridSort;
 }();
 
-var VGrid = exports.VGrid = (_dec41 = (0, _aureliaFramework.bindable)({ attribute: "v-grid-context" }), _dec42 = (0, _aureliaFramework.bindable)({ attribute: "v-collection" }), _dec43 = (0, _aureliaFramework.bindable)({ attribute: "v-current-entity" }), _dec44 = (0, _aureliaFramework.bindable)({ attribute: "v-columns" }), _dec45 = (0, _aureliaFramework.bindable)({ attribute: "v-row-height" }), _dec46 = (0, _aureliaFramework.bindable)({ attribute: "v-header-height" }), _dec47 = (0, _aureliaFramework.bindable)({ attribute: "v-footer-height" }), _dec48 = (0, _aureliaFramework.bindable)({ attribute: "v-multi-select" }), _dec49 = (0, _aureliaFramework.bindable)({ attribute: "v-manual-sel" }), _dec50 = (0, _aureliaFramework.bindable)({ attribute: "v-loading-threshold" }), _dec51 = (0, _aureliaFramework.bindable)({ attribute: "v-remote-index" }), _dec52 = (0, _aureliaFramework.bindable)({ attribute: "v-row-on-draw" }), _dec53 = (0, _aureliaFramework.bindable)({ attribute: "v-event-onremote" }), (_class26 = (_temp3 = _class27 = function () {
+var VGrid = exports.VGrid = (_dec41 = (0, _aureliaFramework.bindable)({ attribute: "v-grid-context" }), _dec42 = (0, _aureliaFramework.bindable)({ attribute: "v-collection" }), _dec43 = (0, _aureliaFramework.bindable)({ attribute: "v-current-entity" }), _dec44 = (0, _aureliaFramework.bindable)({ attribute: "v-columns" }), _dec45 = (0, _aureliaFramework.bindable)({ attribute: "v-row-height" }), _dec46 = (0, _aureliaFramework.bindable)({ attribute: "v-header-height" }), _dec47 = (0, _aureliaFramework.bindable)({ attribute: "v-footer-height" }), _dec48 = (0, _aureliaFramework.bindable)({ attribute: "v-multi-select" }), _dec49 = (0, _aureliaFramework.bindable)({ attribute: "v-manual-sel" }), _dec50 = (0, _aureliaFramework.bindable)({ attribute: "v-loading-threshold" }), _dec51 = (0, _aureliaFramework.bindable)({ attribute: "v-remote-index" }), _dec52 = (0, _aureliaFramework.bindable)({ attribute: "v-row-on-draw" }), _dec53 = (0, _aureliaFramework.bindable)({ attribute: "v-event-onremote" }), _dec54 = (0, _aureliaFramework.bindable)({ attribute: "v-hide-pager-info" }), _dec55 = (0, _aureliaFramework.bindable)({ attribute: "v-custom-pager" }), _dec56 = (0, _aureliaFramework.bindable)({ attribute: "v-language" }), (_class25 = (_temp3 = _class26 = function () {
   function VGrid(element, bindingEngine, viewCompiler, viewSlot, container, viewResources, taskQueue) {
     _classCallCheck(this, VGrid);
 
@@ -4152,7 +4295,13 @@ var VGrid = exports.VGrid = (_dec41 = (0, _aureliaFramework.bindable)({ attribut
 
     _initDefineProp(this, 'eventOnRemoteCall', _descriptor23, this);
 
-    _initDefineProp(this, 'loadingMessage', _descriptor24, this);
+    _initDefineProp(this, 'attHidePagerInfo', _descriptor24, this);
+
+    _initDefineProp(this, 'attCustomPager', _descriptor25, this);
+
+    _initDefineProp(this, 'attLanguage', _descriptor26, this);
+
+    _initDefineProp(this, 'loadingMessage', _descriptor27, this);
 
     this.loading = false;
 
@@ -4182,6 +4331,9 @@ var VGrid = exports.VGrid = (_dec41 = (0, _aureliaFramework.bindable)({ attribut
     this.vGridClientCtx = new VGridCtx(this);
     this.vGridMarkupGenerator = new VGridMarkupGenerator(this);
     this.vGridPager = null;
+    this.lastCollectionLength;
+    this.lastFilterLength;
+    this.lastSelectionLength;
   }
 
   VGrid.prototype.raiseEvent = function raiseEvent(name) {
@@ -4196,12 +4348,35 @@ var VGrid = exports.VGrid = (_dec41 = (0, _aureliaFramework.bindable)({ attribut
     return event;
   };
 
+  VGrid.prototype.sendCollectionEvent = function sendCollectionEvent() {
+
+    var x1 = this.lastCollectionLength;
+    var x2 = this.lastFilterLength;
+    var x3 = this.lastSelectionLength;
+    var y1 = this.vGridCollection.length;
+    var y2 = this.vGridCollectionFiltered.length;
+    var y3 = this.vGridSelection.selectedRows;
+
+    if (x1 !== y1 || x2 !== y2 || x3 !== y3) {
+      this.raiseEvent("v-local-collection-event", {
+        evt: "v-local-collection-event",
+        totalLength: this.vGridCollection.length,
+        filterLength: this.vGridCollectionFiltered.length,
+        selectionLength: this.vGridSelection.selectedRows
+      });
+
+      this.lastCollectionLength = this.vGridCollection.length;
+      this.lastFilterLength = this.vGridCollectionFiltered.length;
+      this.lastSelectionLength = this.vGridSelection.selectedRows;
+    }
+  };
+
   VGrid.prototype.checkKeys = function checkKeys() {
-    var _this35 = this;
+    var _this37 = this;
 
     this.vGridCollection.forEach(function (row) {
-      if (!row[_this35.vGridRowKey] && row !== undefined && row !== null) {
-        row[_this35.vGridRowKey] = _this35.guid();
+      if (!row[_this37.vGridRowKey] && row !== undefined && row !== null) {
+        row[_this37.vGridRowKey] = _this37.guid();
       }
     });
   };
@@ -4213,11 +4388,11 @@ var VGrid = exports.VGrid = (_dec41 = (0, _aureliaFramework.bindable)({ attribut
   };
 
   VGrid.prototype.vGridGetRowKey = function vGridGetRowKey(key) {
-    var _this36 = this;
+    var _this38 = this;
 
     var rowFound = null;
     this.vGridCollection.forEach(function (row, index) {
-      if (row[_this36.vGridRowKey] === key) {
+      if (row[_this38.vGridRowKey] === key) {
         rowFound = index;
       }
     });
@@ -4253,6 +4428,9 @@ var VGrid = exports.VGrid = (_dec41 = (0, _aureliaFramework.bindable)({ attribut
     vConfig.setBindValueBool(this.attManualSelection, 'attManualSelection');
     vConfig.setBindValueFunction(this.eventOnRowDraw, 'eventOnRowDraw');
     vConfig.setBindValueFunction(this.eventOnRemoteCall, 'eventOnRemoteCall');
+    vConfig.setBindValueBool(this.attHidePagerInfo, 'attHidePagerInfo');
+    vConfig.setBindValueString(this.attCustomPager, 'attCustomPager');
+    this.vGridConfig.attLanguage = this.attLanguage || this.vGridConfig.attLanguage;
 
     if (this.vGridCollection === undefined || this.vGridCurrentEntity === undefined) {
       if (this.vGridCollection === undefined && this.vGridCurrentEntity === undefined) {
@@ -4296,48 +4474,57 @@ var VGrid = exports.VGrid = (_dec41 = (0, _aureliaFramework.bindable)({ attribut
   };
 
   return VGrid;
-}(), _class27.inject = [Element, _aureliaFramework.BindingEngine, _aureliaFramework.ViewCompiler, _aureliaFramework.ViewSlot, _aureliaFramework.Container, _aureliaFramework.ViewResources, _aureliaFramework.TaskQueue], _temp3), (_descriptor11 = _applyDecoratedDescriptor(_class26.prototype, 'vGridContextObj', [_dec41], {
+}(), _class26.inject = [Element, _aureliaFramework.BindingEngine, _aureliaFramework.ViewCompiler, _aureliaFramework.ViewSlot, _aureliaFramework.Container, _aureliaFramework.ViewResources, _aureliaFramework.TaskQueue], _temp3), (_descriptor11 = _applyDecoratedDescriptor(_class25.prototype, 'vGridContextObj', [_dec41], {
   enumerable: true,
   initializer: null
-}), _descriptor12 = _applyDecoratedDescriptor(_class26.prototype, 'vGridCollection', [_dec42], {
+}), _descriptor12 = _applyDecoratedDescriptor(_class25.prototype, 'vGridCollection', [_dec42], {
   enumerable: true,
   initializer: null
-}), _descriptor13 = _applyDecoratedDescriptor(_class26.prototype, 'vGridCurrentEntity', [_dec43], {
+}), _descriptor13 = _applyDecoratedDescriptor(_class25.prototype, 'vGridCurrentEntity', [_dec43], {
   enumerable: true,
   initializer: null
-}), _descriptor14 = _applyDecoratedDescriptor(_class26.prototype, 'vGridColumns', [_dec44], {
+}), _descriptor14 = _applyDecoratedDescriptor(_class25.prototype, 'vGridColumns', [_dec44], {
   enumerable: true,
   initializer: null
-}), _descriptor15 = _applyDecoratedDescriptor(_class26.prototype, 'attRowHeight', [_dec45], {
+}), _descriptor15 = _applyDecoratedDescriptor(_class25.prototype, 'attRowHeight', [_dec45], {
   enumerable: true,
   initializer: null
-}), _descriptor16 = _applyDecoratedDescriptor(_class26.prototype, 'attHeaderHeight', [_dec46], {
+}), _descriptor16 = _applyDecoratedDescriptor(_class25.prototype, 'attHeaderHeight', [_dec46], {
   enumerable: true,
   initializer: null
-}), _descriptor17 = _applyDecoratedDescriptor(_class26.prototype, 'attFooterHeight', [_dec47], {
+}), _descriptor17 = _applyDecoratedDescriptor(_class25.prototype, 'attFooterHeight', [_dec47], {
   enumerable: true,
   initializer: null
-}), _descriptor18 = _applyDecoratedDescriptor(_class26.prototype, 'attMultiSelect', [_dec48], {
+}), _descriptor18 = _applyDecoratedDescriptor(_class25.prototype, 'attMultiSelect', [_dec48], {
   enumerable: true,
   initializer: null
-}), _descriptor19 = _applyDecoratedDescriptor(_class26.prototype, 'attManualSelection', [_dec49], {
+}), _descriptor19 = _applyDecoratedDescriptor(_class25.prototype, 'attManualSelection', [_dec49], {
   enumerable: true,
   initializer: null
-}), _descriptor20 = _applyDecoratedDescriptor(_class26.prototype, 'attLoadingThreshold', [_dec50], {
+}), _descriptor20 = _applyDecoratedDescriptor(_class25.prototype, 'attLoadingThreshold', [_dec50], {
   enumerable: true,
   initializer: null
-}), _descriptor21 = _applyDecoratedDescriptor(_class26.prototype, 'attRemoteIndex', [_dec51], {
+}), _descriptor21 = _applyDecoratedDescriptor(_class25.prototype, 'attRemoteIndex', [_dec51], {
   enumerable: true,
   initializer: null
-}), _descriptor22 = _applyDecoratedDescriptor(_class26.prototype, 'eventOnRowDraw', [_dec52], {
+}), _descriptor22 = _applyDecoratedDescriptor(_class25.prototype, 'eventOnRowDraw', [_dec52], {
   enumerable: true,
   initializer: null
-}), _descriptor23 = _applyDecoratedDescriptor(_class26.prototype, 'eventOnRemoteCall', [_dec53], {
+}), _descriptor23 = _applyDecoratedDescriptor(_class25.prototype, 'eventOnRemoteCall', [_dec53], {
   enumerable: true,
   initializer: null
-}), _descriptor24 = _applyDecoratedDescriptor(_class26.prototype, 'loadingMessage', [_aureliaFramework.bindable], {
+}), _descriptor24 = _applyDecoratedDescriptor(_class25.prototype, 'attHidePagerInfo', [_dec54], {
+  enumerable: true,
+  initializer: null
+}), _descriptor25 = _applyDecoratedDescriptor(_class25.prototype, 'attCustomPager', [_dec55], {
+  enumerable: true,
+  initializer: null
+}), _descriptor26 = _applyDecoratedDescriptor(_class25.prototype, 'attLanguage', [_dec56], {
+  enumerable: true,
+  initializer: null
+}), _descriptor27 = _applyDecoratedDescriptor(_class25.prototype, 'loadingMessage', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: function initializer() {
     return "Working please wait";
   }
-})), _class26));
+})), _class25));

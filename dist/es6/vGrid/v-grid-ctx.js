@@ -63,13 +63,6 @@ export class VGridCtx {
     }
   }
 
-  get vGridResizable() {
-    if (this.vGrid) {
-      return this.vGrid.vGridResizable;
-    } else {
-      return null;
-    }
-  }
 
   get vGridFilter() {
     if (this.vGrid) {
@@ -147,11 +140,12 @@ export class VGridCtx {
     this.vGrid.vGridCollection = data.col || [];
     this.setLoadingOverlay(false);
     this.vGrid.vGridPager.updatePager({
-      limit : this.vGridConfig.remoteLimit,
-      offset : this.vGridConfig.remoteOffset,
-      length : this.vGridConfig.remoteLength
+      limit: this.vGridConfig.remoteLimit,
+      offset: this.vGridConfig.remoteOffset,
+      length: this.vGridConfig.remoteLength
     });
-  };
+    
+  }
 
 
   /****************************************************************************************************************************
@@ -186,7 +180,6 @@ export class VGridCtx {
   };
 
 
-
   setScrollTop(newTop) {
     this.vGridGenerator.contentElement.scrollTop = newTop;
   };
@@ -213,6 +206,45 @@ export class VGridCtx {
    ****************************************************************************************************************************/
   redrawGrid() {
     this.vGridGenerator.redrawGrid();
+  }
+
+
+  /****************************************************************************************************************************
+   * explain
+   ****************************************************************************************************************************/
+  showSelectedAndNotSelected() {
+    this.vGrid.vGridCollectionFiltered = this.vGrid.vGridCollection.slice(0);
+    this.vGridGenerator.collectionChange();
+  }
+
+
+  /****************************************************************************************************************************
+   * explain
+   ****************************************************************************************************************************/
+  showOnlySelected() {
+    let newArray = [];
+    this.vGridCollection.forEach((x, i)=> {
+      if(this.vGridSelection.isSelectedMain(i)){
+        newArray.push(x)
+      }
+    });
+    this.vGrid.vGridCollectionFiltered = newArray;
+    this.vGridGenerator.collectionChange();
+  }
+
+
+  /****************************************************************************************************************************
+   * explain
+   ****************************************************************************************************************************/
+  showOnlyNotSelected() {
+    let newArray = [];
+    this.vGridCollection.forEach((x, i)=> {
+      if(!this.vGridSelection.isSelectedMain(i)){
+        newArray.push(x)
+      }
+    });
+    this.vGrid.vGridCollectionFiltered = newArray;
+    this.vGridGenerator.collectionChange();
   }
 
 
@@ -268,7 +300,7 @@ export class VGridCtx {
     }
     document.body.removeChild(div);
     var total = Math.ceil(supportedHeight / this.vGridConfig.attRowHeight); //lol
-    return  total + ", error margin:" + Math.ceil(10000 / this.vGridConfig.attRowHeight);
+    return total + ", error margin:" + Math.ceil(10000 / this.vGridConfig.attRowHeight);
   }
 
 
@@ -294,6 +326,53 @@ export class VGridCtx {
   getScrollTop() {
     return this.vGridGenerator.contentElement.scrollTop;
   };
+
+
+  /****************************************************************************************************************************
+   * remote external call for pager
+   ****************************************************************************************************************************/
+  remoteGoToFirst(){
+    this.vGrid.loading = true;
+    this.vGridConfig.remoteOffset = 0;
+    this.vGridConfig.remoteCall();
+  }
+
+
+
+  remoteGoToNext(){
+    this.vGrid.loading = true;
+    this.vGridConfig.remoteOffset = this.vGridConfig.remoteOffset + this.vGridConfig.remoteLimit;
+    this.vGridConfig.remoteCall();
+  }
+
+
+  remoteGoToPage(x){
+    this.vGrid.loading = true;
+    this.vGridConfig.remoteOffset = x * this.vGridConfig.remoteLimit;
+    this.vGridConfig.remoteCall();
+  }
+
+
+  remoteGoToOffset(x){
+    this.vGrid.loading = true;
+    this.vGridConfig.remoteOffset = x;
+    this.vGridConfig.remoteCall();
+  }
+    
+
+  remoteGoTofirstPrev(){
+    this.vGrid.loading = true;
+    this.vGridConfig.remoteOffset = this.vGridConfig.remoteOffset - this.vGridConfig.remoteLimit;
+    this.vGridConfig.remoteCall();
+  }
+
+
+
+  remoteGoTofirstLast(){
+    this.vGrid.loading = true;
+    this.vGridConfig.remoteOffset = this.vGridConfig.remoteLength-this.vGridConfig.remoteLimit;
+    this.vGridConfig.remoteCall();
+  }
 
 
 }

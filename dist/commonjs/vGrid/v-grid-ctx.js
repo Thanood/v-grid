@@ -62,6 +62,37 @@ var VGridCtx = exports.VGridCtx = function () {
     this.vGridGenerator.redrawGrid();
   };
 
+  VGridCtx.prototype.showSelectedAndNotSelected = function showSelectedAndNotSelected() {
+    this.vGrid.vGridCollectionFiltered = this.vGrid.vGridCollection.slice(0);
+    this.vGridGenerator.collectionChange();
+  };
+
+  VGridCtx.prototype.showOnlySelected = function showOnlySelected() {
+    var _this = this;
+
+    var newArray = [];
+    this.vGridCollection.forEach(function (x, i) {
+      if (_this.vGridSelection.isSelectedMain(i)) {
+        newArray.push(x);
+      }
+    });
+    this.vGrid.vGridCollectionFiltered = newArray;
+    this.vGridGenerator.collectionChange();
+  };
+
+  VGridCtx.prototype.showOnlyNotSelected = function showOnlyNotSelected() {
+    var _this2 = this;
+
+    var newArray = [];
+    this.vGridCollection.forEach(function (x, i) {
+      if (!_this2.vGridSelection.isSelectedMain(i)) {
+        newArray.push(x);
+      }
+    });
+    this.vGrid.vGridCollectionFiltered = newArray;
+    this.vGridGenerator.collectionChange();
+  };
+
   VGridCtx.prototype.setColumns = function setColumns(paramObj) {
     this.vGridConfig.colConfig = paramObj.colConfig;
   };
@@ -115,6 +146,42 @@ var VGridCtx = exports.VGridCtx = function () {
 
   VGridCtx.prototype.getScrollTop = function getScrollTop() {
     return this.vGridGenerator.contentElement.scrollTop;
+  };
+
+  VGridCtx.prototype.remoteGoToFirst = function remoteGoToFirst() {
+    this.vGrid.loading = true;
+    this.vGridConfig.remoteOffset = 0;
+    this.vGridConfig.remoteCall();
+  };
+
+  VGridCtx.prototype.remoteGoToNext = function remoteGoToNext() {
+    this.vGrid.loading = true;
+    this.vGridConfig.remoteOffset = this.vGridConfig.remoteOffset + this.vGridConfig.remoteLimit;
+    this.vGridConfig.remoteCall();
+  };
+
+  VGridCtx.prototype.remoteGoToPage = function remoteGoToPage(x) {
+    this.vGrid.loading = true;
+    this.vGridConfig.remoteOffset = x * this.vGridConfig.remoteLimit;
+    this.vGridConfig.remoteCall();
+  };
+
+  VGridCtx.prototype.remoteGoToOffset = function remoteGoToOffset(x) {
+    this.vGrid.loading = true;
+    this.vGridConfig.remoteOffset = x;
+    this.vGridConfig.remoteCall();
+  };
+
+  VGridCtx.prototype.remoteGoTofirstPrev = function remoteGoTofirstPrev() {
+    this.vGrid.loading = true;
+    this.vGridConfig.remoteOffset = this.vGridConfig.remoteOffset - this.vGridConfig.remoteLimit;
+    this.vGridConfig.remoteCall();
+  };
+
+  VGridCtx.prototype.remoteGoTofirstLast = function remoteGoTofirstLast() {
+    this.vGrid.loading = true;
+    this.vGridConfig.remoteOffset = this.vGridConfig.remoteLength - this.vGridConfig.remoteLimit;
+    this.vGridConfig.remoteCall();
   };
 
   _createClass(VGridCtx, [{

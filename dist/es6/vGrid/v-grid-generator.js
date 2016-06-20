@@ -105,6 +105,9 @@ export class VGridGenerator {
     this.updateGridScrollbars();
     this.rebindAllRowSlots();
     this.setLargeScrollLimit();
+
+    this.vGrid.sendCollectionEvent();
+
   }
 
 
@@ -147,7 +150,7 @@ export class VGridGenerator {
         var currentRow = parseInt(e.currentTarget.getAttribute("row"));
         this.vGridConfig.clickHandler(e, currentRow);
         if (this.vGridConfig.attMultiSelect !== undefined) {
-          this.vGridSelection.setHightlight(e, currentRow, this);
+          this.vGridSelection.highlight(e, currentRow, this);
         }
       }, false);
 
@@ -300,8 +303,8 @@ export class VGridGenerator {
         top: 0
       }], 0, top);
 
-      row.style.minWidth = this.gridElement.offsetWidth + "px";
-      row.style.width = this.vGrid.vGridConfig.repeater ? "100%" : this.getTotalColumnWidth() + "px";
+      row.style["min-width"] = this.getTotalColumnWidth() + "px";
+      row.style.width = "100%";
 
       //inner magic
       row.innerHTML = ""; //? why Im I doing this? todo test... why
@@ -392,7 +395,8 @@ export class VGridGenerator {
    * creates the footer viewslots
    ****************************************************************************************************************************/
   createFooterViewSlot() {
-    var viewFactory = this.vGrid.viewCompiler.compile('<template><v-grid-pager></v-grid-pager></template>', this.vGrid.viewResources);
+    var pagerElement = this.vGridConfig.attCustomPager || '<v-grid-pager></v-grid-pager>';
+    var viewFactory = this.vGrid.viewCompiler.compile(`<template>${pagerElement}</template>`, this.vGrid.viewResources);
     var view = viewFactory.create(this.vGrid.container);
 
     this.footerViewSlot = new ViewSlot(this.footerElement, true);
@@ -562,7 +566,8 @@ export class VGridGenerator {
   correctRowAndScrollbodyWidth() {
     this.contentScrollBodyElement.style.width = this.vGrid.vGridConfig.repeater ? "100%" : this.getTotalColumnWidth() + "px";
     for (var i = 0; i < this.rowElementArray.length; i++) {
-      this.rowElementArray[i].div.style.width = this.vGrid.vGridConfig.repeater ? "100%" : this.getTotalColumnWidth() + "px";
+      this.rowElementArray[i].div.style.width = "100%";
+      this.rowElementArray[i].div.style["min-width"] = this.getTotalColumnWidth() + "px";
     }
     this.headerScrollElement.style.width = this.vGrid.vGridConfig.repeater ? "100%" : this.getTotalColumnWidth() + "px";
   };
@@ -808,6 +813,8 @@ export class VGridGenerator {
     //if I dont do this, chrome fails...
     this.contentScrollBodyElement.style.height = this.scrollBodyHeight - 1 + "px";
     this.contentScrollBodyElement.style.height = this.scrollBodyHeight + 1 + "px";
+
+    this.vGrid.sendCollectionEvent();
   };
 
 
